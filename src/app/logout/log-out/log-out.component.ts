@@ -1,5 +1,8 @@
+import { LogoutConfirmationComponent } from './../logout-confirmation/logout-confirmation.component';
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-log-out',
@@ -9,6 +12,7 @@ import { Router } from '@angular/router';
 export class LogOutComponent implements OnInit {
 
   constructor(private router:Router) {
+   
    }
 
    logOutUser(){

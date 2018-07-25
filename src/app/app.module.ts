@@ -1,3 +1,5 @@
+
+
 import { ProductService } from './product/service/product.service';
 import { CategoryService } from './category.service';
 import { BootstrapNavbarComponent } from './bootstrap-navbar/bootstrap-navbar.component';
@@ -31,7 +33,10 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoginService } from './login/login.service';
 import { LogOutComponent } from './logout/log-out/log-out.component';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
+import { LogoutConfirmationComponent } from './logout/logout-confirmation/logout-confirmation.component';
 
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -48,10 +53,13 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
     AdminOrdersComponent,
     LoginComponent,
     LogOutComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    LogoutConfirmationComponent,
+    
 
 
   ],
+  entryComponents:[LogoutConfirmationComponent],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
@@ -60,6 +68,9 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
     ReactiveFormsModule,
     FormsModule,
     CustomFormsModule,
+    BrowserAnimationsModule,
+
+    
     
     AngularFirestoreModule,
     RouterModule.forRoot([
