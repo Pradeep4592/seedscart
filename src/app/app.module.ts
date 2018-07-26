@@ -37,6 +37,7 @@ import { LogoutConfirmationComponent } from './logout/logout-confirmation/logout
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SignupComponent } from './singup/signup/signup.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LogOutComponent,
     ProductFormComponent,
     LogoutConfirmationComponent,
+    SignupComponent,
     
 
 
