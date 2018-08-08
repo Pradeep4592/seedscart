@@ -31,9 +31,10 @@ import { LogoutConfirmationComponent } from './logout/logout-confirmation/logout
 import {MatDialogModule} from '@angular/material/dialog';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule,MatSidenavModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule,MatSidenavModule, MatTabsModule} from '@angular/material';
 import { SignupComponent } from './singup/signup/signup.component';
 import { SignupSuccessComponent } from './dilog/signup-success/signup-success.component';
+import { BillingFormComponent } from './billing/billing-form/billing-form.component';
 
 
 
@@ -56,6 +57,7 @@ import { SignupSuccessComponent } from './dilog/signup-success/signup-success.co
     LogoutConfirmationComponent,
     SignupComponent,
     SignupSuccessComponent,
+    BillingFormComponent,
     
 
 
@@ -72,6 +74,7 @@ import { SignupSuccessComponent } from './dilog/signup-success/signup-success.co
     BrowserAnimationsModule,
     MatDialogModule,
     MatSidenavModule,
+    MatTabsModule,
    
     
    
@@ -94,7 +97,8 @@ import { SignupSuccessComponent } from './dilog/signup-success/signup-success.co
       {path:'manageProduct',component:AdminProductsComponent},
       {path:'productForm/new',component:ProductFormComponent},
       {path:'productForm/:Id',component:ProductFormComponent},
-      {path:'signup',component:SignupComponent}
+      {path:'signup',component:SignupComponent},
+      {path:'billing',component:BillingFormComponent}
 
     ])
   ],
