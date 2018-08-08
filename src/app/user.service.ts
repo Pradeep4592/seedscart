@@ -16,7 +16,13 @@ export class UserService {
   }
 
 
-
+isAvalableUserName(username :string){
+  
+if(username!=""){
+ 
+return this.getUserByUserName(username);
+}
+}
 
   getAllUsers(){
     
@@ -31,7 +37,8 @@ export class UserService {
    return this.userObservable ;
   }
 
-  createUser(){
-    this.dbs.list('users').push({"name":"pk1"})
+  createUser(form:User){
+    if(form.username != "")
+    this.dbs.object('/users/'+form.username).set(form)
   }
 }

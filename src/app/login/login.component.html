@@ -4,8 +4,8 @@
 
     </div>
     <h1 class="h3 mb-3 font-weight-normal">Welcome Back</h1>
-    <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="text" id="inputUserName" class="form-control" formControlName="username" placeholder="Email address" required >{{username.value}}
+    <label for="inputEmail" class="sr-only"></label>
+    <input type="text" id="inputUserName" class="form-control" formControlName="username" placeholder="User Name" required >
     <label for="inputPassword" class="sr-only">Password</label>
     <input type="password" id="inputPassword" class="form-control" formControlName="password" placeholder="Password" required>
     <div class="checkbox mb-3">
@@ -13,8 +13,8 @@
         <input type="checkbox" value="remember-me"> Remember me
       </label>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    
+    <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!form.valid" >Sign in</button>
+      <a   routerLink='/signup' >Dont have an account ? Sign Up here..</a>
   </form>
  
-{{users | json}}
+

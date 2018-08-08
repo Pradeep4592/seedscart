@@ -1,15 +1,10 @@
 
-
 import { ProductService } from './product/service/product.service';
 import { CategoryService } from './category.service';
 import { BootstrapNavbarComponent } from './bootstrap-navbar/bootstrap-navbar.component';
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
 import { AppComponent } from './app.component';
-
 import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 import { ShopingCartComponent } from './shoping-cart/shoping-cart.component';
@@ -19,7 +14,6 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { RouterModule } from '@angular/router';
-import {DropdownModule} from "ngx-dropdown";
 import {CustomFormsModule} from 'ng2-validation'
 
 import {AngularFireModule} from 'angularfire2';
@@ -34,10 +28,14 @@ import { LoginService } from './login/login.service';
 import { LogOutComponent } from './logout/log-out/log-out.component';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { LogoutConfirmationComponent } from './logout/logout-confirmation/logout-confirmation.component';
-
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCheckboxModule,MatSidenavModule} from '@angular/material';
 import { SignupComponent } from './singup/signup/signup.component';
+import { SignupSuccessComponent } from './dilog/signup-success/signup-success.component';
+
+
 
 
 @NgModule({
@@ -57,20 +55,28 @@ import { SignupComponent } from './singup/signup/signup.component';
     ProductFormComponent,
     LogoutConfirmationComponent,
     SignupComponent,
+    SignupSuccessComponent,
     
 
 
   ],
-  entryComponents:[LogoutConfirmationComponent],
+  entryComponents:[LogoutConfirmationComponent,SignupSuccessComponent],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    DropdownModule,
+    MatButtonModule, MatCheckboxModule,
     ReactiveFormsModule,
     FormsModule,
     CustomFormsModule,
     BrowserAnimationsModule,
+    MatDialogModule,
+    MatSidenavModule,
+   
+    
+   
+
+ 
 
     
     
@@ -88,6 +94,7 @@ import { SignupComponent } from './singup/signup/signup.component';
       {path:'manageProduct',component:AdminProductsComponent},
       {path:'productForm/new',component:ProductFormComponent},
       {path:'productForm/:Id',component:ProductFormComponent},
+      {path:'signup',component:SignupComponent}
 
     ])
   ],

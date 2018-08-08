@@ -1,3 +1,45 @@
-<p>
-  signup works!
-</p>
+<form #f='ngForm'  [formGroup]="form" (ngSubmit)="signUp(f.value)" >
+<!--(contextmenu)="onRightClick($event)"-->
+
+
+<h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
+
+<label for="userName"></label>
+<input type="text" id="username"  class="form-control" formControlName="username" placeholder="User Name" (keyup)="isAvalableUser('userName')" required>
+  <div *ngIf="username.touched && username.invalid" class="alert alert-danger"> 
+  Username Required
+    </div>
+    <div *ngIf="isAvalableUserName && !username.invalid" class="alert alert-danger"> 
+      User Name already taken, try another ..
+      </div>
+  
+<label for="firstName"></label>
+<input type="text" id="firstName"  formControlName="first_name" class="form-control"  placeholder="First Name" >
+<div *ngIf="firstName.touched && firstName.invalid" class="alert alert-danger"> 
+  firstName Required
+    </div>
+<label for="lastName"></label>
+<input type="text" id="lastName"   class="form-control" formControlName="last_name"  placeholder="Last Name" >
+<div *ngIf="lastName.touched && lastName.invalid" class="alert alert-danger"> 
+  lastName Required
+    </div>
+
+<label for="mobile"></label>
+<input type="text" id="mobile"   class="form-control" formControlName="mobile" placeholder="Mobile No" >
+<div *ngIf="mobNo.touched && mobNo.invalid" class="alert alert-danger"> 
+  mobNo Required
+    </div>
+
+<label for="password"></label>
+<input type="password" id="password"   class="form-control" formControlName="password" placeholder="Password" >
+<div *ngIf="password.touched && password.invalid" class="alert alert-danger"> 
+  password Required
+    </div>
+
+<label for="Confirm password"></label>
+<input type="password" id="confirmpassword"   class="form-control"  formControlName="confirm_password"placeholder="Confirm Password" >
+<div *ngIf="confirmPassword.touched && confirmPassword.invalid" class="alert alert-danger"> 
+  Retype your password    </div>
+<button class="btn btn-primary" [disabled]="!form.valid" >Register</button>
+</form>
+
