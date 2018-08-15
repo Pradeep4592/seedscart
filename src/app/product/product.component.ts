@@ -2,6 +2,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CategoryService } from './../category.service';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from './service/product.service';
+import { Product } from '../model/product';
 
 @Component({
   selector: 'app-product',
@@ -31,7 +32,10 @@ export class ProductComponent implements OnInit {
     });
 
    }
+addToCart(product:Product){
+console.log(product)
 
+}
   ngOnInit() {
 
   }
