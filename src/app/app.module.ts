@@ -35,6 +35,7 @@ import {MatButtonModule, MatCheckboxModule,MatSidenavModule, MatTabsModule} from
 import { SignupComponent } from './singup/signup/signup.component';
 import { SignupSuccessComponent } from './dilog/signup-success/signup-success.component';
 import { BillingFormComponent } from './billing/billing-form/billing-form.component';
+import { ShopingCartService } from './shoping-cart.service';
 
 
 
@@ -108,7 +109,8 @@ import { BillingFormComponent } from './billing/billing-form/billing-form.compon
     LoginService,
     BootstrapNavbarComponent,
     CategoryService,
-    ProductService
+    ProductService,
+    ShopingCartService
 
   ],
   bootstrap: [AppComponent]
