@@ -1,28 +1,74 @@
+import { Product } from './model/product';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
+import 'rxjs/add/operator/take'; 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShopingCartService {
+item:any
 
-  getOrCreate(): any {
-    let cartId=localStorage.getItem("cartId")
-    if(!cartId){
-      this.create().then(result=>{
-        localStorage.setItem("cartId",result.key)
-        });
-    }
-  }
   constructor(private db :AngularFireDatabase) { 
 
   }
 
-  create(){
+
+ private async getOrCreateId() {
+    let cartId=localStorage.getItem("cartId")
+    if(cartId) return cartId;
+    
+     let result = await this.create()
+     localStorage.setItem("cartId",result.key)
+     return result.key;
+    
+   
+  }
+  private getItem(cartId: string, productId: string) {
+    return this.db.object('/shopping-carts/' + cartId + '/items/' + productId);
+  }
+
+private getShopingCart(cartId:string){
+  return this.db.object("/shoping-carts/"+cartId)
+}
+
+ private create(){
     return this.db.list("/shoping-carts").push({
        dateCreated:new Date().getTime()
     })
 
   }
+
+async addToCart(product :Product){
+let cartId= await this.getOrCreateId()
+console.log(product.$key);
+console.log(product.key);
+
+let item$=this.getItem(cartId,product.key)
+
+item$.valueChanges().take(1).subscribe(item =>{
+ this.item=item;
+if(this.item){
+  let quantity=this.item.quantity;
+  item$.set({product:product,quantity:quantity+1})
+ 
+}else{
+  item$.set({product:product,quantity:1})
+  console.log("item not exist");
+}
+
+
+})
+
+
+
+
+}
+getItemQuantity(productKey:string){
+  let cartId=localStorage.getItem("cartId");
+  if(cartId){
+return this.getItem(cartId,productKey);
+  }
+}
 
 }

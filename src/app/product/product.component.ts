@@ -12,20 +12,24 @@ import { createAttribute } from '@angular/compiler/src/core';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  product$;
+
+  item: any;
   products;
   categories;
   category;
   constructor(produceService : ProductService, categorySer:CategoryService,rout:ActivatedRoute,private cart:ShopingCartService) {
    
-    this.product$= produceService.getAll().valueChanges().subscribe(products=>{
+   let product$= produceService.getAll().valueChanges().subscribe(products=>{
     this.products=products;
    
   rout.queryParamMap.subscribe(param=>{
 
   this.category=param.get('category');
-  })
+ 
+
+}).unsubscribe()
   
+ 
   });
 
 
@@ -34,15 +38,29 @@ export class ProductComponent implements OnInit {
     });
 
    }
+
+
 addToCart(product:Product){
 console.log(product)
-this.cart.create().then(result=>{
-localStorage.setItem("cartId",result.key)
-});
+this.cart.addToCart(product);
+
+
+
 
 }
   ngOnInit() {
 
   }
+  
 
+  
+ 
+
+  
+
+
+ 
+
+    
+  
 }
