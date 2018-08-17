@@ -27,7 +27,7 @@ export class ProductComponent implements OnInit {
   this.category=param.get('category');
  
 
-}).unsubscribe()
+})
   
  
   });
@@ -57,10 +57,10 @@ this.cart.addToCart(product);
  
 
   
-
+}
 
  
 
     
   
-}
+

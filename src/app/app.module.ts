@@ -36,6 +36,7 @@ import { SignupComponent } from './singup/signup/signup.component';
 import { SignupSuccessComponent } from './dilog/signup-success/signup-success.component';
 import { BillingFormComponent } from './billing/billing-form/billing-form.component';
 import { ShopingCartService } from './shoping-cart.service';
+import { ProductCardComponent } from './product-card/product-card.component';
 
 
 
@@ -59,6 +60,7 @@ import { ShopingCartService } from './shoping-cart.service';
     SignupComponent,
     SignupSuccessComponent,
     BillingFormComponent,
+    ProductCardComponent,
     
 
 

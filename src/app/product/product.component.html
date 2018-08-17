@@ -13,15 +13,7 @@
                     
               
               <div class="col ">
-                        <div  class="card" style="width:15rem;">
-                            <img class="card-img-top"[src]="p.imageUrl" alt="Card image cap" >
-                            <div class="card-body">
-                              <h5 class="card-title">{{p.title}}</h5>
-                              <p class="card-text">{{p.price|currency:"INR":symbol}}</p>
-                              <button (click)="addToCart(p)" class="btn btn-primary btn-block">Add to cart</button>
-                          
-                            </div>
-                          </div>
+                <product-card [product]="p" ></product-card>
                     </div>
                     <div class="w-100" *ngIf="(i+1)%3===0"></div>
             
