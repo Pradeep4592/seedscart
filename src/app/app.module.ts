@@ -38,7 +38,7 @@ import { BillingFormComponent } from './billing/billing-form/billing-form.compon
 import { ShopingCartService } from './shoping-cart.service';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { CarouselModule } from 'ngx-bootstrap';
-
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 
 
@@ -80,6 +80,7 @@ import { CarouselModule } from 'ngx-bootstrap';
     MatSidenavModule,
     MatTabsModule,
     CarouselModule.forRoot(),
+    MatToolbarModule,
     
    
 

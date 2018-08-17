@@ -4,10 +4,40 @@
   <mat-tab-group #tabGroup>
     <mat-tab label="Product Details">
       <h1>Some tab content</h1>
-      <app-product></app-product>
-      <label for="product_name"></label>
-      <input type="text" id="firstName"  formControlName="product_name" class="form-control"  placeholder="Product name" >
+      <div class="row">
+        
+          <div class="col">
+              <div class="row">
+                  <ng-container *ngFor="let p of products; let i=index" >
+                          
+                    
+                    <div class="col ">
+                              <div  class="card" style="width:15rem;">
+                                  <img class="thumbnail"[src]="p.imageUrl" alt="Card image cap" >
+                                  <p class="card-text">{{p.price|currency:"INR":symbol}}</p>
+                                  <div class="card-body">
+                                    <h5 class="card-title">{{p.title}}</h5>
+                                   
+                                    <a href="#" class="btn btn-primary">Add to cart</a>
+                                  </div>
+                                </div>
+                          </div>
+                          <div class="w-100" *ngIf="(i+1)%3===0"></div>
+                  
+                        </ng-container>
+                  <br>
+                  
+                  </div>
+                 
       
+          </div>
+          <div class="col-3">
+            <div  class="list-group">
+           
+            </div>
+         
+             </div>
+             </div>
       <button mat-button (click)="tabGroup.selectedIndex = 1">Next></button>
     </mat-tab>
     <mat-tab label="Customer Details">

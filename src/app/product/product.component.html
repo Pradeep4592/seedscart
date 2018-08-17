@@ -1,17 +1,58 @@
 
+<div >
 
+    <carousel>
+        <slide>
+          <div class="text-center py-5 bg-dark text-white">
+            <h2>First custom content</h2>
+            <div class="lead">
+              <h3>First slide label</h3>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </div>
+          </div>
+        </slide>
+        <slide>
+          <div class="text-center py-5 bg-dark text-white">
+            <h2>Second custom content</h2>
+            <div class="lead">
+              <h3>Second slide label</h3>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </div>
+          </div>
+        </slide>
+        <slide>
+          <div class="text-center py-5 bg-dark text-white">
+            <h2>Third custom content</h2>
+            <div class="lead">
+              <h3>Third slide label</h3>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum. </p>
+            </div>
+          </div>
+        </slide>
+      </carousel>
+
+</div>
+
+<mat-toolbar>
+    <div  >
+        <a routerLink="/" [queryParams]="{category:c.name}"  *ngFor="let c of categories"   [class.active]="category===c.name">
+             {{c.name}}
+           </a>
+         </div>
+  </mat-toolbar>
 <div class="row">
   
   
-  <div class="col-3">
+  <!--<div class="col-3">
      
-   <div  class="list-group">
+   <div  >
   <a routerLink="/" [queryParams]="{category:c.name}"  *ngFor="let c of categories"  class="list-group-item list-group-item-action" [class.active]="category===c.name">
        {{c.name}}
      </a>
    </div>
 
-    </div>
+    </div>-->
+
     <div class="col">
         
         <div class="row">
@@ -21,7 +62,7 @@
               <div class="col ">
                 <product-card [product]="p" ></product-card>
                     </div>
-                    <div class="w-100" *ngIf="(i+1)%3===0"></div>
+                    <div class="w-100" *ngIf="(i+1)%4===0"></div>
             
                   </ng-container>
             <br>

@@ -1,3 +1,5 @@
+<body>
+
 <form #f='ngForm'  [formGroup]="form" (ngSubmit)="signUp(f.value)" >
 <!--(contextmenu)="onRightClick($event)"-->
 
@@ -42,4 +44,4 @@
   Retype your password    </div>
 <button class="btn btn-primary" [disabled]="!form.valid" >Register</button>
 </form>
-
+</body>
