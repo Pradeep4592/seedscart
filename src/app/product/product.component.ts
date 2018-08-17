@@ -17,6 +17,7 @@ export class ProductComponent implements OnInit {
   products;
   categories;
   category;
+  
   constructor(produceService : ProductService, categorySer:CategoryService,rout:ActivatedRoute,private cart:ShopingCartService) {
    
    let product$= produceService.getAll().valueChanges().subscribe(products=>{

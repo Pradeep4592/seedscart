@@ -37,6 +37,7 @@ import { SignupSuccessComponent } from './dilog/signup-success/signup-success.co
 import { BillingFormComponent } from './billing/billing-form/billing-form.component';
 import { ShopingCartService } from './shoping-cart.service';
 import { ProductCardComponent } from './product-card/product-card.component';
+import { CarouselModule } from 'ngx-bootstrap';
 
 
 
@@ -78,7 +79,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
     MatDialogModule,
     MatSidenavModule,
     MatTabsModule,
-   
+    CarouselModule.forRoot(),
     
    
 
