@@ -17,6 +17,7 @@ export class ProductComponent implements OnInit {
   products;
   categories;
   category;
+  carsFlag=true;
   
   constructor(produceService : ProductService, categorySer:CategoryService,rout:ActivatedRoute,private cart:ShopingCartService) {
    
@@ -47,6 +48,10 @@ this.cart.addToCart(product);
 
 
 
+
+}
+colapseCarousel(){
+  this.carsFlag=false;
 
 }
   ngOnInit() {

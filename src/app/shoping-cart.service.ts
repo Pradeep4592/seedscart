@@ -60,9 +60,6 @@ if(this.item){
 
 })
 
-
-
-
 }
 getItemQuantity(productKey:string){
   let cartId=localStorage.getItem("cartId");
