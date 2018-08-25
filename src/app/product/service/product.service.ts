@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
 import { Product } from '../../model/product';
@@ -10,6 +10,7 @@ export class ProductService {
  
   object :AngularFireObject<Product>
   constructor( db:AngularFireDatabase) { 
+
     this.db=db;
   }
   array:any[];
@@ -29,9 +30,8 @@ getById(id :string){
   this.object= this.db.object('/products/'+id);
   return this.object.valueChanges();
 }
-
 update(id:any,product:any){
- return this.db.object('/products/'+id).update(product);
+return this.db.object('/products/'+id).update(product);
 }
 
 }

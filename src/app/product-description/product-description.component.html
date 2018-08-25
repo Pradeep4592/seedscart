@@ -1,0 +1,44 @@
+
+
+<mat-toolbar >
+   
+    <button type="button"  class="btn btn-primary" > Go back to Product </button>
+    <button type="button"  class="btn btn-primary" > Go to Cart </button>
+   
+</mat-toolbar>
+
+
+<div class="container">
+
+
+
+<div class="row">
+<div class="col-md-4 border" >
+
+    <div class="card" style="width: 35rem;">
+        <img class="card-img-top" [src]="product.imageUrl" alt="Card image cap">
+        <div class="card-body">
+        <div style="width:50%" class=" btn bg-warning">
+            Add to Cart
+        </div>
+          
+        <div style="width:50%" class=" btn bg-warning">
+          Buy Now
+        </div>
+        </div>
+      </div>
+
+
+</div>
+
+
+<div class="col-md-6 border">
+<h1>{{product.title}}</h1>
+<h2><strong>{{ product.price | currency:'INR':true }} </strong></h2>
+</div>
+
+</div>
+
+
+
+</div>

@@ -1,14 +1,52 @@
-<div *ngIf="product.title" class="card">
-  <img *ngIf="product.imageUrl" class="card-img-top" [src]="product.imageUrl" alt="{{ product.title }}">
+<!--<div *ngIf="product.title" class="card shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
+  
   <div class="card-body">
-    <h4 class="card-title">{{ product.title }}</h4>
-    <p class="card-text">{{ product.price | currency:'USD':true }}</p>
-  </div>
-  <div *ngIf="showActions" class="card-footer">
-    <button 
+      <img *ngIf="product.imageUrl" class="card-img-top" [src]="product.imageUrl" alt="{{ product.title }}">
+    <h5 class="card-title">{{ product.title }}</h5>
+   <div> <a class="card-text">{{ product.price | currency:'USD':true }}</a>
+    
+        <button  *ngIf="showActions"
+         
+          (click)="addToCart()"
+          class="btn btn-secondary btn-sm float-right">Add to Cart</button>
+       
      
-      (click)="addToCart()"
-      class="btn btn-secondary btn-block">Add to Cart</button>
-   
+    </div>
   </div>
-</div> 
+  
+</div> -->
+<div (click)="onClickImage(product)">
+<div *ngIf="product.imageUrl"  class=" card-image  shadow-lg  " [ngStyle]="{'background-image': 'url(' + product.imageUrl + ')'} " style="height: 168px;max-width: 360px"> 
+<!--<div *ngIf="product.title" class="card card-image" style="width:40rem;height: 25rem;">--> 
+  <div class="card-body">
+    
+    <div > 
+        <div>
+            <h4 class="card-title text-white pt-2 "><strong>{{ product.title }}</strong></h4>
+            <button type="button" class="btn btn-sm btn-warning ">
+                <a class="text-body"><strong>{{ product.price | currency:'INR':true }} /</strong> <strong><img src="..\src\app\icons\si-glyph-money-bag.svg" style="height: 15px;max-width: 15px ;color:red"/>25Kg</strong></a>
+             
+            </button>
+          
+            
+           
+        </div>
+        <div *ngIf="false">
+          <button   *ngIf="getQuantity()===0; else updateQuantity"
+          (click)="addToCart()"class="btn-sm btn-redious btn-secondary   btn-success btn-block"><strong>Add to Cart</strong></button>
+          <ng-template #updateQuantity>
+            <div class="row">
+              <div class="col">
+              <button (click)="removeFromCart()" class="btn-sm btn-danger btn-redious  float-left"><strong>-</strong></button>
+              </div>
+              <div class="col"><h5 class="text-center font-weight-bold text-nowrap  text-danger" ><strong>{{getQuantity()}} in cart</strong></h5></div>
+              <div class="col">
+                <button class="btn-sm btn-redious btn-danger  float-right " (click)="addToCart()"><strong>+</strong></button>
+              </div> </div>
+          </ng-template>
+        </div>
+    
+  </div>
+</div>
+  
+

@@ -31,14 +31,16 @@ import { LogoutConfirmationComponent } from './logout/logout-confirmation/logout
 import {MatDialogModule} from '@angular/material/dialog';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule,MatSidenavModule, MatTabsModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule,MatSidenavModule, MatTabsModule,MatIconModule } from '@angular/material';
 import { SignupComponent } from './singup/signup/signup.component';
 import { SignupSuccessComponent } from './dilog/signup-success/signup-success.component';
-import { BillingFormComponent } from './billing/billing-form/billing-form.component';
+
 import { ShopingCartService } from './shoping-cart.service';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { CarouselModule } from 'ngx-bootstrap';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { CarouselComponent } from './carousel/carousel.component';
+import { ProductDescriptionComponent } from './product-description/product-description.component';
 
 
 
@@ -60,8 +62,12 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     LogoutConfirmationComponent,
     SignupComponent,
     SignupSuccessComponent,
-    BillingFormComponent,
+   
     ProductCardComponent,
+   
+    CarouselComponent,
+   
+    ProductDescriptionComponent,
     
 
 
@@ -81,8 +87,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatTabsModule,
     CarouselModule.forRoot(),
     MatToolbarModule,
-    
-   
+    MatButtonModule
+    ,
+   MatIconModule,
 
  
 
@@ -103,8 +110,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
       {path:'productForm/new',component:ProductFormComponent},
       {path:'productForm/:Id',component:ProductFormComponent},
       {path:'signup',component:SignupComponent},
-      {path:'billing',component:BillingFormComponent}
-
+      {path:'productDetails',component:ProductDescriptionComponent},
+     
     ])
   ],
   providers: [

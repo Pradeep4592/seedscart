@@ -1,24 +1,27 @@
-<div routerLink="/productForm/new"class="btn btn-primary">Add New</div>
 
 
-<br>
-<table class="table table-bordered">
+<div class="container">
+        <div routerLink="/productForm/new"class="btn btn-primary">Add New</div>
 
-<thead>
-    <tr>
-        <th>Title</th>
-        <th>Price</th>
-        <th></th>
-    </tr>
-</thead>
-<tbody>
-    <tr *ngFor="let p of product$ ">
-        <td>{{p.title}}</td>
-        <td>{{p.price}}</td>
-        <td>
-            <a [routerLink]="['/productForm/',p.key]">Edit
-        </a></td>
-    </tr>
-</tbody>
+        <table class="table table-bordered">
+        
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of product$ ">
+                <td>{{p.title}}</td>
+                <td>{{p.price}}</td>
+                <td>
+                    <a [routerLink]="['/productForm/',p.key]">Edit
+                </a></td>
+            </tr>
+        </tbody>
+        
+        </table>
 
-</table>
+</div>

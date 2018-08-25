@@ -7,14 +7,19 @@ import 'rxjs/add/operator/take';
   providedIn: 'root'
 })
 export class ShopingCartService {
+  
+ 
 item:any
 
   constructor(private db :AngularFireDatabase) { 
 
   }
+  async getCart()  {
+    let cartId= await this.getOrCreateId();
+    return this.db.object("/shopping-carts/"+cartId)
+  }
 
-
- private async getOrCreateId() {
+ private async getOrCreateId():Promise<string> {
     let cartId=localStorage.getItem("cartId")
     if(cartId) return cartId;
     
@@ -41,8 +46,7 @@ private getShopingCart(cartId:string){
 
 async addToCart(product :Product){
 let cartId= await this.getOrCreateId()
-console.log(product.$key);
-console.log(product.key);
+
 
 let item$=this.getItem(cartId,product.key)
 
@@ -61,11 +65,27 @@ if(this.item){
 })
 
 }
-getItemQuantity(productKey:string){
-  let cartId=localStorage.getItem("cartId");
-  if(cartId){
-return this.getItem(cartId,productKey);
-  }
+
+async removeFromCart(product: Product) {
+  let cartId= await this.getOrCreateId()
+
+
+let item$=this.getItem(cartId,product.key)
+
+item$.valueChanges().take(1).subscribe(item =>{
+ this.item=item;
+if(this.item){
+  let quantity=this.item.quantity;
+  item$.set({product:product,quantity:quantity-1})
+ 
+}else{
+  item$.set({product:product,quantity:1})
+  console.log("item not exist");
 }
 
+
+})
+
+ 
+}
 }

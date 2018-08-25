@@ -1,11 +1,32 @@
 .card { 
-    margin-bottom: 30px;
+    margin-bottom: 1px;
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-top: 1px;
+    
   }
   
-  .card-img-top { 
-    height: 200px;
+  .card-image { 
+    
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px 5px;
+    margin-top:20px;
+    margin-left:20px;
+   
+    
+    background-repeat: no-repeat;
   }
-  
+  .card-image:hover {
+    opacity: 0.9;
+    
+}
+.bg-dark{
+  opacity: 0.8;
+}
+.bg-white{
+  opacity: 0.5;
+}
   .card-footer {
     padding: 0;
     background: #fff;
@@ -15,3 +36,19 @@
     cursor: pointer;
     text-transform: uppercase;
   }
+.btn-redious{
+ 
+  border-radius: 50px  ;
+}
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  
+  border-radius: 50%;
+}

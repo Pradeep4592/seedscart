@@ -1,44 +1,14 @@
 
-<body>
- <div class="col catalog">
-      <div *ngIf="carsFlag">
-        <carousel>
-            <slide>
-              <div class="text-center py-5 bg-dark text-white">
-                <h2>First custom content</h2>
-                <div class="lead">
-                  <h3>First slide label</h3>
-                  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </div>
-              </div>
-            </slide>
-            <slide>
-              <div class="text-center py-5 bg-dark text-white">
-                <h2>Second custom content</h2>
-                <div class="lead">
-                  <h3>Second slide label</h3>
-                  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </div>
-              </div>
-            </slide>
-            <slide>
-              <div class="text-center py-5 bg-dark text-white">
-                <h2>Third custom content</h2>
-                <div class="lead">
-                  <h3>Third slide label</h3>
-                  <p>Nulla vitae elit libero, a pharetra augue mollis interdum. </p>
-                </div>
-              </div>
-            </slide>
-          </carousel>
-        </div>
+ 
+
+           <sc-carousel></sc-carousel>
         
         <mat-toolbar class="sticky-top">
             <div style="
             display: inline-block;
             margin: auto;
            "class="btn-group " role="group" aria-label="Basic example">
-                <button  type="button"  class="btn btn-success" routerLink="/" [queryParams]="{category:c.name}" (click)="colapseCarousel()" *ngFor="let c of categories"   [class.active]="category===c.name" >
+                <button  type="button"  class="btn btn-info btn-sm" routerLink="/" [queryParams]="{category:c.name}" (click)="colapseCarousel()" *ngFor="let c of categories"   [class.active]="category===c.name" >
                      {{c.name}}
                    </button>
                   </div>
@@ -47,8 +17,8 @@
             <ng-container *ngFor="let p of products; let i=index" >
                     
               
-              <div class="col">
-                <product-card [product]="p" ></product-card>
+              <div class="col ">
+                <product-card [product]="p" [shoping-cart]="cart" ></product-card>
                     </div>
                     <div class="w-100" *ngIf="(i+1)%4===0"></div>
             
@@ -58,5 +28,5 @@
             </div>
            
 
-    </div>
-  </body>
+   
+  

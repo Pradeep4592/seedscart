@@ -1,27 +1,30 @@
 import { ShopingCartService } from './../shoping-cart.service';
 import { ActivatedRoute } from '@angular/router';
 import { CategoryService } from './../category.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProductService } from './service/product.service';
 import { Product } from '../model/product';
-import { createAttribute } from '@angular/compiler/src/core';
+
+import { Subscription } from '../../../node_modules/rxjs';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent implements OnInit ,OnDestroy {
 
   item: any;
   products;
   categories;
   category;
   carsFlag=true;
+  cart: any;
+  subscription:Subscription;
   
-  constructor(produceService : ProductService, categorySer:CategoryService,rout:ActivatedRoute,private cart:ShopingCartService) {
+  constructor(productService : ProductService, categorySer:CategoryService,rout:ActivatedRoute,private cartser:ShopingCartService) {
    
-   let product$= produceService.getAll().valueChanges().subscribe(products=>{
+   let product$= productService.getAll().valueChanges().subscribe(products=>{
     this.products=products;
    
   rout.queryParamMap.subscribe(param=>{
@@ -36,7 +39,7 @@ export class ProductComponent implements OnInit {
 
 
     categorySer.getAll().valueChanges().subscribe(categories=>{
-    this.categories=categories;
+     this.categories=categories;
     });
 
    }
@@ -44,7 +47,7 @@ export class ProductComponent implements OnInit {
 
 addToCart(product:Product){
 console.log(product)
-this.cart.addToCart(product);
+this.cartser.addToCart(product);
 
 
 
@@ -54,10 +57,22 @@ colapseCarousel(){
   this.carsFlag=false;
 
 }
-  ngOnInit() {
+
+
+  async ngOnInit() {
+
+  this.subscription=(await this.cartser.getCart()).valueChanges().subscribe(cart=>{
+    
+    this.cart=cart
+ 
+  });
+  }
+
+
+  ngOnDestroy(){
+this.subscription.unsubscribe();
 
   }
-  
 
   
  
